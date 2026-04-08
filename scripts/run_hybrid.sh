@@ -5,8 +5,8 @@ echo "Running Milestone 3 benchmarks..."
 BENCHMARK=build/benchmark
 # DATASETS="fb_100M_public_uint64 books_100M_public_uint64 osmc_100M_public_uint64"
 DATASETS="fb_100M_public_uint64"
-INDEXES="DynamicPGM LIPP HybridPGMLIPP"
-# INDEXES="HybridPGMLIPP"
+# INDEXES="DynamicPGM LIPP HybridPGMLIPP"
+INDEXES="HybridPGMLIPP"
 
 rm -f results
 
