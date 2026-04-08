@@ -28,12 +28,13 @@ endif ()
 
 set(SOURCE_FILES util.h)
 
-# We only include what we need for DynamicPGM, B+Tree
+# We only include what we need for DynamicPGM, B+Tree, LIPP, and Hybrid
 set(BENCH_SOURCES
     "benchmarks/benchmark_dynamic_pgm.cc"
     "benchmarks/benchmark_pgm.cc"
     "benchmarks/benchmark_lipp.cc"
-    "benchmarks/benchmark_btree.cc")
+    "benchmarks/benchmark_btree.cc"
+    "benchmarks/benchmark_hybrid_pgm_lipp.cc")
 
 file(GLOB_RECURSE SEARCH_SOURCES "searches/*.h" "searches/search.cpp")
 
@@ -45,6 +46,7 @@ target_compile_definitions(benchmark PRIVATE NDEBUGGING)
 target_include_directories(benchmark
         PRIVATE "competitors/PGM-index/include"  # For PGM
         PRIVATE "competitors/stx-btree-0.9/include"  # For B+Tree
+        PRIVATE "competitors"  # For LIPP and Hybrid includes
         PRIVATE ${Boost_INCLUDE_DIRS})
 
 target_link_libraries(benchmark

@@ -18,7 +18,8 @@ echo "Step 2: Creating minimal CMakeLists.txt..."
 echo "Step 3: Generating lookup workloads..."
 ./scripts/generate_workloads.sh
 
-echo "Step 4: Building benchmark..."
+echo "Step 4: Building benchmark...":q
+
 ./scripts/build_benchmark.sh
 
 echo "Step 5: Running benchmarks..."
