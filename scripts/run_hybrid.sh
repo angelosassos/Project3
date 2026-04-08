@@ -8,7 +8,8 @@ DATASETS="fb_100M_public_uint64"
 # INDEXES="DynamicPGM LIPP HybridPGMLIPP"
 INDEXES="HybridPGMLIPP"
 
-rm -f results
+rm -rf results
+mkdir -p results
 
 for DATASET in $DATASETS; do
     for INDEX in $INDEXES; do
@@ -16,7 +17,5 @@ for DATASET in $DATASETS; do
         $BENCHMARK ./data/$DATASET ./data/${DATASET}_ops_2M_0.000000rq_0.500000nl_0.100000i_0m_mix --through --csv --only $INDEX -r 3
     done
 done
-
-rm -f results
 
 echo "Done! Results in ./results/"
