@@ -1,102 +1,62 @@
 Running Milestone 2 benchmarks...
 Repeating lookup code 3 time(s).
 Using 1 thread(s).
-read 100000000 values from ./data/fb_100M_public_uint64 in 712 ms (140.449 M values/s)
-read 2000000 values from ./data/fb_100M_public_uint64_ops_2M_0.000000rq_0.500000nl_0.900000i_0m_mix in 42 ms (47.619 M values/s)
-read 98200000 values from ./data/fb_100M_public_uint64_ops_2M_0.000000rq_0.500000nl_0.900000i_0m_mix_bulkload in 1271 ms (77.262 M values/s)
+read 100000000 values from ./data/fb_100M_public_uint64 in 502 ms (199.203 M values/s)
+read 2000000 values from ./data/fb_100M_public_uint64_ops_2M_0.000000rq_0.500000nl_0.900000i_0m_mix in 33 ms (60.6061 M values/s)
+read 98200000 values from ./data/fb_100M_public_uint64_ops_2M_0.000000rq_0.500000nl_0.900000i_0m_mix_bulkload in 964 ms (101.867 M values/s)
 Data is unique.
 Variable rsum was: 0
-RESULT: DynamicPGM,4299559,4272602,4276180index size,1700494188Throughput: ,2.8232,2.87772,2.88567Variant: ,BinarySearchVariant: ,512
+RESULT: HybridPGMLIPP,8942429,7034898,4928454index size,12550533788Throughput: ,3.86422,3.88175,3.9104Variant: ,BinarySearchVariant: ,64Variant: ,10
 Variable rsum was: 0
-RESULT: DynamicPGM,4921683,4922625,4922192index size,1705154448Throughput: ,2.91676,2.94451,2.96061Variant: ,BinarySearchVariant: ,64
+RESULT: HybridPGMLIPP,4940195,4956784,4950571index size,12544396284Throughput: ,4.0857,4.01124,4.10269Variant: ,BinarySearchVariant: ,64Variant: ,20
 Variable rsum was: 0
-RESULT: DynamicPGM,4695591,4696871,4697924index size,1702518268Throughput: ,2.93932,2.90005,2.90663Variant: ,BinarySearchVariant: ,128
+RESULT: HybridPGMLIPP,4960891,4932408,4937508index size,12540713788Throughput: ,4.10733,4.1646,4.17164Variant: ,BinarySearchVariant: ,64Variant: ,50
+Variable rsum was: 0
+RESULT: HybridPGMLIPP,4929385,4937480,4901740index size,12550524848Throughput: ,3.94431,3.94434,3.93977Variant: ,BinarySearchVariant: ,128Variant: ,10
+Variable rsum was: 0
+RESULT: HybridPGMLIPP,4928808,4965977,4936504index size,12544387344Throughput: ,4.11362,4.09627,4.11015Variant: ,BinarySearchVariant: ,128Variant: ,20
+Variable rsum was: 0
+RESULT: HybridPGMLIPP,4927273,4922562,4946685index size,12540704848Throughput: ,4.17787,4.17855,4.18091Variant: ,BinarySearchVariant: ,128Variant: ,50
+Variable rsum was: 0
+RESULT: HybridPGMLIPP,4921209,4945587,4969420index size,12550522748Throughput: ,4.06671,4.04251,4.02846Variant: ,BinarySearchVariant: ,256Variant: ,10
+Variable rsum was: 0
+RESULT: HybridPGMLIPP,4916026,4923825,4922430index size,12544385244Throughput: ,4.22653,4.21521,4.23395Variant: ,BinarySearchVariant: ,256Variant: ,20
+Variable rsum was: 0
+RESULT: HybridPGMLIPP,4934715,4947418,4974977index size,12540702748Throughput: ,4.31583,4.31649,4.28538Variant: ,BinarySearchVariant: ,256Variant: ,50
+Variable rsum was: 0
+RESULT: HybridPGMLIPP,4918065,4925495,4963167index size,12550522128Throughput: ,4.00364,4.01726,3.92034Variant: ,BinarySearchVariant: ,512Variant: ,10
+Variable rsum was: 0
+RESULT: HybridPGMLIPP,4918439,4934196,4934756index size,12544384624Throughput: ,4.15278,4.14866,4.15485Variant: ,BinarySearchVariant: ,512Variant: ,20
+Variable rsum was: 0
+RESULT: HybridPGMLIPP,4941304,4927156,4982798index size,12540702128Throughput: ,4.20723,4.19557,4.23779Variant: ,BinarySearchVariant: ,512Variant: ,50
 Repeating lookup code 3 time(s).
 Using 1 thread(s).
-read 100000000 values from ./data/fb_100M_public_uint64 in 353 ms (283.286 M values/s)
-read 2000000 values from ./data/fb_100M_public_uint64_ops_2M_0.000000rq_0.500000nl_0.100000i_0m_mix in 45 ms (44.4444 M values/s)
-read 99800000 values from ./data/fb_100M_public_uint64_ops_2M_0.000000rq_0.500000nl_0.100000i_0m_mix_bulkload in 1263 ms (79.0182 M values/s)
+read 100000000 values from ./data/fb_100M_public_uint64 in 289 ms (346.021 M values/s)
+read 2000000 values from ./data/fb_100M_public_uint64_ops_2M_0.000000rq_0.500000nl_0.100000i_0m_mix in 30 ms (66.6667 M values/s)
+read 99800000 values from ./data/fb_100M_public_uint64_ops_2M_0.000000rq_0.500000nl_0.100000i_0m_mix_bulkload in 924 ms (108.009 M values/s)
 Data is unique.
 Variable rsum was: 0
-RESULT: DynamicPGM,4363478,4355233,4343947index size,1700504528Throughput: ,0.850291,0.856492,0.850586Variant: ,BinarySearchVariant: ,512
+RESULT: HybridPGMLIPP,9075110,7114855,4998904index size,12700175712Throughput: ,6.51252,5.88896,5.75386Variant: ,BinarySearchVariant: ,64Variant: ,10
 Variable rsum was: 0
-RESULT: DynamicPGM,4998162,5005535,4999885index size,1705226028Throughput: ,0.912554,0.910265,0.912845Variant: ,BinarySearchVariant: ,64
+RESULT: HybridPGMLIPP,4969706,4975247,5002019index size,12693938208Throughput: ,5.94971,5.82464,5.82978Variant: ,BinarySearchVariant: ,64Variant: ,20
 Variable rsum was: 0
-RESULT: DynamicPGM,4780127,4774930,4776590index size,1702558388Throughput: ,0.883938,0.889908,0.896025Variant: ,BinarySearchVariant: ,128
-Repeating lookup code 3 time(s).
-Using 1 thread(s).
-read 100000000 values from ./data/fb_100M_public_uint64 in 354 ms (282.486 M values/s)
-read 2000000 values from ./data/fb_100M_public_uint64_ops_2M_0.000000rq_0.500000nl_0.900000i_0m_mix in 23 ms (86.9565 M values/s)
-read 98200000 values from ./data/fb_100M_public_uint64_ops_2M_0.000000rq_0.500000nl_0.900000i_0m_mix_bulkload in 693 ms (141.703 M values/s)
-Data is unique.
+RESULT: HybridPGMLIPP,4968430,5021528,5008384index size,12690195712Throughput: ,5.87003,5.87044,5.87079Variant: ,BinarySearchVariant: ,64Variant: ,50
 Variable rsum was: 0
-RESULT: LIPP,11553770,8489824,5390097index size,12656662928Throughput: ,2.25464,2.04987,2.05325
-Repeating lookup code 3 time(s).
-Using 1 thread(s).
-read 100000000 values from ./data/fb_100M_public_uint64 in 334 ms (299.401 M values/s)
-read 2000000 values from ./data/fb_100M_public_uint64_ops_2M_0.000000rq_0.500000nl_0.100000i_0m_mix in 23 ms (86.9565 M values/s)
-read 99800000 values from ./data/fb_100M_public_uint64_ops_2M_0.000000rq_0.500000nl_0.100000i_0m_mix_bulkload in 695 ms (143.597 M values/s)
-Data is unique.
+RESULT: HybridPGMLIPP,4987971,4995887,4999277index size,12700175712Throughput: ,5.83654,5.76475,5.86388Variant: ,BinarySearchVariant: ,128Variant: ,10
 Variable rsum was: 0
-RESULT: LIPP,11574846,8629070,5390941index size,12700946864Throughput: ,17.9595,17.5698,17.6131
-Repeating lookup code 3 time(s).
-Using 1 thread(s).
-read 100000000 values from ./data/fb_100M_public_uint64 in 335 ms (298.507 M values/s)
-read 2000000 values from ./data/fb_100M_public_uint64_ops_2M_0.000000rq_0.500000nl_0.900000i_0m_mix in 23 ms (86.9565 M values/s)
-read 98200000 values from ./data/fb_100M_public_uint64_ops_2M_0.000000rq_0.500000nl_0.900000i_0m_mix_bulkload in 690 ms (142.319 M values/s)
-Data is unique.
+RESULT: HybridPGMLIPP,4972262,4991696,5038944index size,12693938208Throughput: ,6.02311,5.85682,6.01637Variant: ,BinarySearchVariant: ,128Variant: ,20
 Variable rsum was: 0
-RESULT: HybridPGMLIPP,11458730,8537667,5386399index size,12538258780Throughput: ,3.52531,3.59798,3.60628Variant: ,BinarySearchVariant: ,64Variant: ,10
+RESULT: HybridPGMLIPP,4967806,4972055,5009864index size,12690195712Throughput: ,6.07014,6.10014,6.1058Variant: ,BinarySearchVariant: ,128Variant: ,50
 Variable rsum was: 0
-RESULT: HybridPGMLIPP,5405173,5340648,5328634index size,12538258780Throughput: ,3.64037,3.65478,3.64054Variant: ,BinarySearchVariant: ,64Variant: ,20
+RESULT: HybridPGMLIPP,4971631,4973414,4975627index size,12700175712Throughput: ,5.84303,5.86957,5.86531Variant: ,BinarySearchVariant: ,256Variant: ,10
 Variable rsum was: 0
-RESULT: HybridPGMLIPP,5316545,5346015,5342097index size,12538258780Throughput: ,3.67498,3.67213,3.67988Variant: ,BinarySearchVariant: ,64Variant: ,50
+RESULT: HybridPGMLIPP,4974216,4962891,5011805index size,12693938208Throughput: ,5.84926,5.82716,5.85262Variant: ,BinarySearchVariant: ,256Variant: ,20
 Variable rsum was: 0
-RESULT: HybridPGMLIPP,5349689,5340612,5344719index size,12538249840Throughput: ,3.69408,3.68456,3.68561Variant: ,BinarySearchVariant: ,128Variant: ,10
+RESULT: HybridPGMLIPP,4967740,4989337,5015961index size,12690195712Throughput: ,5.93622,5.97097,5.94308Variant: ,BinarySearchVariant: ,256Variant: ,50
 Variable rsum was: 0
-RESULT: HybridPGMLIPP,5318453,5390155,5321122index size,12538249840Throughput: ,3.6932,3.67575,3.6845Variant: ,BinarySearchVariant: ,128Variant: ,20
+RESULT: HybridPGMLIPP,4968093,4994455,4973749index size,12700175712Throughput: ,5.80001,5.77786,5.77331Variant: ,BinarySearchVariant: ,512Variant: ,10
 Variable rsum was: 0
-RESULT: HybridPGMLIPP,5345613,5347280,5360721index size,12538249840Throughput: ,3.67881,3.67756,3.67665Variant: ,BinarySearchVariant: ,128Variant: ,50
+RESULT: HybridPGMLIPP,4981639,4961753,4974749index size,12693938208Throughput: ,5.77483,5.77099,5.77216Variant: ,BinarySearchVariant: ,512Variant: ,20
 Variable rsum was: 0
-RESULT: HybridPGMLIPP,5394869,5347920,5363500index size,12538247740Throughput: ,3.67651,3.65981,3.67761Variant: ,BinarySearchVariant: ,256Variant: ,10
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,5356398,5319160,5319927index size,12538247740Throughput: ,3.66845,3.68946,3.68559Variant: ,BinarySearchVariant: ,256Variant: ,20
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,5373852,5317453,5320386index size,12538247740Throughput: ,3.68753,3.66754,3.68122Variant: ,BinarySearchVariant: ,256Variant: ,50
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,5380977,5334755,5313040index size,12538247120Throughput: ,3.62361,3.66082,3.6565Variant: ,BinarySearchVariant: ,512Variant: ,10
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,5361667,5363641,5348543index size,12538247120Throughput: ,3.61147,3.6515,3.6677Variant: ,BinarySearchVariant: ,512Variant: ,20
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,5319150,5352653,5348498index size,12538247120Throughput: ,3.62296,3.67939,3.67479Variant: ,BinarySearchVariant: ,512Variant: ,50
-Repeating lookup code 3 time(s).
-Using 1 thread(s).
-read 100000000 values from ./data/fb_100M_public_uint64 in 335 ms (298.507 M values/s)
-read 2000000 values from ./data/fb_100M_public_uint64_ops_2M_0.000000rq_0.500000nl_0.100000i_0m_mix in 23 ms (86.9565 M values/s)
-read 99800000 values from ./data/fb_100M_public_uint64_ops_2M_0.000000rq_0.500000nl_0.100000i_0m_mix_bulkload in 694 ms (143.804 M values/s)
-Data is unique.
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,11621676,8682673,5459127index size,12687700704Throughput: ,1.99851,1.94693,1.98421Variant: ,BinarySearchVariant: ,64Variant: ,10
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,5450083,5392630,5416136index size,12687700704Throughput: ,1.98937,1.94954,1.97359Variant: ,BinarySearchVariant: ,64Variant: ,20
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,5425520,5417100,5406846index size,12687700704Throughput: ,1.9598,1.99319,1.95975Variant: ,BinarySearchVariant: ,64Variant: ,50
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,5398824,5444623,5395944index size,12687700704Throughput: ,1.96782,1.95563,1.93665Variant: ,BinarySearchVariant: ,128Variant: ,10
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,5390778,5435832,5404432index size,12687700704Throughput: ,1.97306,1.93608,1.96269Variant: ,BinarySearchVariant: ,128Variant: ,20
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,5433941,5396173,5405619index size,12687700704Throughput: ,1.95595,1.92981,1.98619Variant: ,BinarySearchVariant: ,128Variant: ,50
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,5387903,5397182,5400874index size,12687700704Throughput: ,1.98419,1.99576,1.92227Variant: ,BinarySearchVariant: ,256Variant: ,10
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,5401116,5404685,5417969index size,12687700704Throughput: ,1.99233,1.97752,1.95556Variant: ,BinarySearchVariant: ,256Variant: ,20
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,5453323,5417032,5445456index size,12687700704Throughput: ,1.94878,1.99382,1.96108Variant: ,BinarySearchVariant: ,256Variant: ,50
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,5393039,5405186,5464456index size,12687700704Throughput: ,1.98105,1.95984,1.98149Variant: ,BinarySearchVariant: ,512Variant: ,10
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,5415377,5423299,5446631index size,12687700704Throughput: ,1.9694,1.94491,1.95836Variant: ,BinarySearchVariant: ,512Variant: ,20
-Variable rsum was: 0
-RESULT: HybridPGMLIPP,5394923,5414734,5426173index size,12687700704Throughput: ,1.94973,1.97376,1.94318Variant: ,BinarySearchVariant: ,512Variant: ,50
+RESULT: HybridPGMLIPP,4984114,5004789,4969870index size,12690195712Throughput: ,5.88176,5.77826,5.88505Variant: ,BinarySearchVariant: ,512Variant: ,50
 Done! Results in ./results_milestone_2/

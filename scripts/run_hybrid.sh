@@ -9,7 +9,7 @@ mkdir -p results_milestone_2
 rm -f results
 ln -s results_milestone_2 results
 
-for INDEX in DynamicPGM LIPP HybridPGMLIPP; do
+for INDEX in HybridPGMLIPP; do
     $BENCHMARK ./data/$DATASET ./data/${DATASET}_ops_2M_0.000000rq_0.500000nl_0.900000i_0m_mix --through --csv --only $INDEX -r 3
     $BENCHMARK ./data/$DATASET ./data/${DATASET}_ops_2M_0.000000rq_0.500000nl_0.100000i_0m_mix --through --csv --only $INDEX -r 3
 done
