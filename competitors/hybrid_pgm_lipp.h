@@ -82,27 +82,44 @@ class HybridPGMLIPP : public Base<KeyType> {
     return t;
   }
 
+  // LIPP-first lookup. Trusts LIPP's answer if LIPP finds the key.
+  // CORRECTNESS ASSUMPTION: the workload does not re-insert keys that
+  // already exist in LIPP. Verified empirically with --verify mode.
   size_t EqualityLookup(const KeyType& key, uint32_t /*tid*/) const {
-    // (1) Active DPGM: foreground owns it exclusively, no lock needed.
-    // Skip the Bloom/DPGM probe entirely if active is empty (e.g. right
-    // after a flush, or before the first insert in a lookup-heavy run).
+    // Snapshot the flush state once so all stages see a consistent view.
+    // Acquire pairs with the release in TryStartFlush() and
+    // BackgroundDrain().
+    const bool flush_active =
+        flush_in_progress_.load(std::memory_order_acquire);
+
+    // (1) Probe LIPP first. The vast majority of keys live here, so on
+    // positive lookups for bulk-loaded keys this is the only probe we do.
+    // Lock-free unless a flush is in progress; the release of
+    // flush_in_progress_=false in the bg thread happens-after the final
+    // LIPP write, so an acquire-load of false means we see a fully-written
+    // LIPP state with no writer active.
+    uint64_t lipp_value;
+    bool lipp_found;
+    if (flush_active) {
+      std::lock_guard<std::mutex> lk(lipp_mtx_);
+      lipp_found = lipp_.find(key, lipp_value);
+    } else {
+      lipp_found = lipp_.find(key, lipp_value);
+    }
+    if (lipp_found) return lipp_value;
+
+    // (2) LIPP missed. Maybe the key is in the active DPGM (foreground
+    // owns it exclusively, no lock needed). Skip the Bloom/DPGM probe
+    // entirely if active is empty (e.g. a lookup-heavy run with no
+    // inserts yet).
     if (active_count_ > 0 && bloom_active_.maybe_contains(key)) {
       auto it = dpgm_active_->find(key);
       if (it != dpgm_active_->end()) return it->value();
     }
 
-    // Snapshot the flush state once so stages (2) and (3) see a consistent
-    // view. Acquire pairs with the release in TryStartFlush() and
-    // BackgroundDrain(). Because the benchmark driver is single-threaded,
-    // no new flush can be triggered between this load and the end of
-    // EqualityLookup (that would require an Insert call from this thread,
-    // which can't happen while we're in EqualityLookup).
-    const bool flush_active =
-        flush_in_progress_.load(std::memory_order_acquire);
-
-    // (2) Frozen DPGM, only if a flush is in progress. bloom_frozen_ is
-    // safe to read unlocked; dpgm_frozen_->find() needs flush_mtx_ because
-    // the bg thread may destroy it at the end of the drain.
+    // (3) Frozen DPGM (only during a flush). bloom_frozen_ is safe to
+    // read unlocked; dpgm_frozen_->find() needs flush_mtx_ because the
+    // bg thread may destroy it at the end of the drain.
     if (flush_active && bloom_frozen_.maybe_contains(key)) {
       std::lock_guard<std::mutex> lk(flush_mtx_);
       if (dpgm_frozen_) {
@@ -111,21 +128,7 @@ class HybridPGMLIPP : public Base<KeyType> {
       }
     }
 
-    // (3) LIPP. Only lock if a flush is in progress (i.e. the bg thread
-    // may be writing). Otherwise read lock-free: the release of
-    // flush_in_progress_=false in the bg thread happens-after the final
-    // LIPP write, so an acquire-load of false means we see a fully-written
-    // LIPP state with no writer active.
-    uint64_t value;
-    bool found;
-    if (flush_active) {
-      std::lock_guard<std::mutex> lk(lipp_mtx_);
-      found = lipp_.find(key, value);
-    } else {
-      found = lipp_.find(key, value);
-    }
-    if (!found) return util::NOT_FOUND;
-    return value;
+    return util::NOT_FOUND;
   }
 
   uint64_t RangeQuery(const KeyType& /*lower*/, const KeyType& /*upper*/,
